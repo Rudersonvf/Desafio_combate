@@ -51,13 +51,12 @@ public class Champion {
 
 	// Methods
 
-
-	public void takeDamage() {
-		if(attack < armor) {
-			life -= 1;
+	public void takeDamage(Champion other) {
+		if(other.attack > armor) {
+			life -= other.attack - armor;
 		}
 		else {
-			life -= attack - armor;
+			life -= 1;
 		}
 	}
 	
@@ -70,9 +69,7 @@ public class Champion {
 		}
 		else {
 			return name
-					+ ": "
-					+ life
-					+ " de vida (morreu)";
+					+ ": 0 de vida (morreu)";
 		}
 	}
 }
